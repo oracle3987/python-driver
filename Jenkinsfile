@@ -641,11 +641,11 @@ pipeline {
 
   stages {
     stage ('Build and Test') {
-      agent none
-      //   // If I removed this agent block, GIT_URL and GIT_COMMIT aren't set.
-      //   // However, this trigger an additional checkout
-      //   label none
-      // }
+      agent {
+        // If I removed this agent block, GIT_URL and GIT_COMMIT aren't set.
+        // However, this trigger an additional checkout
+        label "master"
+      }
       when {
         beforeAgent true
         allOf {
